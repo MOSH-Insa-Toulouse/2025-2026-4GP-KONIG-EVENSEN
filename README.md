@@ -1,7 +1,7 @@
 # LOWTECH FLEX SENSOR
 ## 2025-2026-4GP-KONIG-EVENSEN
 
-![Alt text](./Photos/PCB_3D_Model.png)
+![Alt text](./Photos/KiCad/PCB_3D_Model.png)
 
 This work is regulated by the Creative Commons Licence CC BY 4.0, for more information 
 [follow this link](https://creativecommons.org/licenses/by/4.0/).
@@ -26,7 +26,7 @@ During this project we have sought out to create a LowTech Flex Sensor based on 
 This project is based on the research of [Lin et al.](https://www.nature.com/articles/srep03812) on the use of "Pencil Drawn Strain Gauges and Chemiresistors on Paper". They showed that regular commercial pencils deposit fine graphite particles on paper during dry application due to friction. The graphite powder makes up a percolated network which works as a thin conductive film on the paper. This makes for an increadibly easy deposit method for generating conductive films in various patterns.
 By creating a specific U-shaped pencil trace (see [Datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_Flex_Sensor.pdf)), the conductive properties of the graphite network can be used to measure compressive and tensile deflections, and we can therefore employ it as a strain gauge. When the graphite is in compression (inward deflection), the graphite particle network is compressed, creating a more closely connected conductive film, and hence lowering the resistance of the strain gauge. Contrarily, tension (outward deflection) increases the resistance of the strain gauge as the distances between the graphite particles increase and disconnects the conduction pathways. The conduction between non-connected graphite particles remains possible due to tunneling effect in granular systems.
 
-![Alt text](./Photos/graphite.png)
+![Alt text](./Photos/Graphite_Sensor/graphite.png)
 
 The resistance of the pencil trace can easily be measured, and varies based on the type of pencil used (in this project HB, 3B and 6B). Softer pencils have higher graphite content and therefore show lower resistance.
 
@@ -38,36 +38,36 @@ For this project we started off with the perception of an amplification circuit 
 ## Amplificator Circuit Simulations
 Before the conception of the circuit for the realization of the graphite sensor, we performed simulations of the amplifier circuit in order to predict its performance. For this simulation we used the program LTSpice, and the exact files used can be found in the repository [LTSpice_Files](./LTSpice_Files/). The amplifier circuit tested was as follows:
 
-![Alt text](./Photos/Amplifier_Circuit.png)
+![Alt text](./Photos/LTSpice/Amplifier_Circuit.png)
 
 The graphite sensor is simulated by the following circuit:
 
-![Alt text](./Photos/Graphite_Sensor_LTSpice.png)
+![Alt text](./Photos/LTSpice/Graphite_Sensor_LTSpice.png)
 
 As the graphite sensor constitutes a very sensitive system, it is extremeley susceptible to noise at 50Hz coming from the capacitive coupling to the grid power at 230V, as shown by the Fourier transform of the acquired signal.
 
-![Alt text](./Photos/FFT.png)
+![Alt text](./Photos/LTSpice/FFT.png)
 
 The amplifier circuit serves as a low-pass filter with a cutoff frequency at approximately 1.6Hz to reduce the influence of this noise. It also serves to minimize the noise from the other componenets which will be added to the printed circuit board, such as the clock of the digital circuits and the radio frequency used for the bluetooth communication. The circuit consists of a passive filter which minimizes high frequency noise, an active filter of the type LTC1050, and a second passive filter for filtering out the noise coming from the processing of the signal.
 
 During the testing of the ciruit's transient response, the dependency on the capacitance C4 became evident. An increased value of the capacitance minimized the influence of noise on the signal, but increased the repsonse time significantly. Contrarily, a decreased value enhanced the response time, but augmented the noise influence. A compromise between the two conflicting properties was made when determining the value of the capacitance.
 
 C4 = 0.1 $\mu$ F
-![Alt text](./Photos/Trans_0.1u.png)
+![Alt text](./Photos/LTSpice/Trans_0.1u.png)
 
 C4 = 1 $\mu$ F
-![Alt text](./Photos/Trans_1u.png)
+![Alt text](./Photos/LTSpice/Trans_1u.png)
 
 C4 = 10 $\mu$ F
-![Alt text](./Photos/Trans_10u.png)
+![Alt text](./Photos/LTSpice/Trans_10u.png)
 
 
 ## Printed Circuit Board Design and Development
 The design of the printed circuit board (PCB) destined for the use as a shield for an Arduino UNO was done using the program KiCad. Here, diagrams and imprints were made of all the necessary components, and the PCB was designed with the necessary connections between the components and the Arduino UNO. The PCB allows the connection between the Arduino UNO and the following components ([link to datasheets](./Components_Datasheets/)).
 
-![Alt text](./Photos/KiCad_Schema.png)
+![Alt text](./Photos/KiCad/KiCad_Schema.png)
 
-![Alt text](./Photos/KiCad_PCB.png)
+![Alt text](./Photos/KiCad/KiCad_PCB.png)
 
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
@@ -88,7 +88,7 @@ The OLED Screen used is of the type SBC-OLED01 and uses the SCL (serial clock li
 A rotary encoder of the type KY-040 is connected using the CLK, DT and SW pins. The SW (switch) and CLK (clock) are connected to respectively the pins D2 and D3 of the Arduino UNO as these permit the use of interruptions, as is generated on CLK when rotating the rotary encoder. The DT (data) pin connects to D4.
 Inside the rotary encoder, two switches serve to determine a rotation as they are either both opened or closed in each encoder position. The order in which the swithces change state is used to determine the direction of the rotation, as shown by the diagram below:
 
-![Alt text](./Photos/encoder_diagram.png)
+![Alt text](./Photos/PCB_and_Components/encoder_diagram.png)
 
 A capacitor is connected between the ground and the CLK pin in order to stabilize the interrupt signal.
 
@@ -100,7 +100,7 @@ For the development of the PCB a PDF-file of the PCB design was printed on trans
 
 Afterwards, holes are drilled and passive components, as well as supports for the active components, are welded to the printed circuit board.
 
-![Alt text](./Photos/PCB.png)
+![Alt text](./Photos/PCB_and_Components/PCB.png)
 
 ## Arduino Code
 After the conception of the PCB, we continued to the development of an Arduino IDE code permitting the controlling of the components. The Ardunio code has multiple functionalities interconnecting the electrical components.
@@ -119,9 +119,9 @@ The GitHub QR mode displays a QR code which links to the GitHub page of this pro
 The Arduino code also manages the serial communication over Bluetooth which is used for the transfer of data between the Arduino UNO and an android when using the APK Application which will be described in the following section.
 
 ## APK Application Design and Development
-An APK Application for Android has been developed using the program MIT App Inventor. This application can easily be downloaded to any android device and permits a simple monitoring of the Arduino UNO. The application allows for connecting to a bluetooth module such as the HC-05. Depending on if the Flex mode or the Graphite mode is activated, the graphs in the application display the current measured resistance and the relative resistance when "Start" is clicked. When "Stop" is clicked the measurement will stop, and if "Start" is then reclicked, the graphs reset and a new measurement start. The results of a measurement can be shared or saved using the "Share Result" button. It will then be shared as a text file with the format "x1,y1;x2,y2;...". A "Scan Barcode" button permits the scanning of QR codes, such as the one displayed in QR mode, leading directly to the GitHub page of this project.
+An APK Application for Android has been developed using the program MIT App Inventor. This application can easily be downloaded to any android device and permits a simple monitoring of the Arduino UNO. The application allows for connecting to a bluetooth module such as the HC-05. Depending on if the Flex mode or the Graphite mode is activated, the graphs in the application display the current measured resistance and the relative resistance when "Start" is clicked. When "Stop" is clicked the measurement will stop, and if "Start" is then reclicked, the graphs reset and a new measurement start. The results of a measurement can be shared or saved using the "Share Result" button. It will then be shared as a text file with the format "x1,y1;x2,y2;...". A "Scan QR Code" button permits the scanning of QR codes, such as the one displayed in QR mode, leading directly to the GitHub page of this project.
 
-![Alt text](./Photos/Measuring.png) ![Alt text](./Photos/QR_Application.png)
+![Alt text](./Photos/APK_Application/Measuring.png) ![Alt text](./Photos/APK_Application/QR_Application.png)
 
 ## Test Setup
 For the testing of the performance of the LowTech graphite sensor, we developed a simple test setup based on the principle of a three-point flexural test. We designed a 3D model using TinkerCad and printed it with the help of extremely knowledgeable and helpful representatives of the INSA Toulouse FabLab Fabric'INSA. The STL-files can be found in the repository [TestSetup_Files](./TestSetup_Files/Projet_MOSH.stl).
@@ -138,7 +138,7 @@ Lastly, we created a [datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_F
 ## Conclusion
 In order to conclude on the results of this project, we have analyzed the performance of the LowTech graphite sensor compared to a commercial flex sensor. We found the sensitivity of the sensor as a good measurement as this determines the smallest measurable difference in strain, the input value. When analyzing the sensitivity of the graphite sensor, we found that the harder pencils showed a higher sensibility (see the [datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_Flex_Sensor.pdf) of the graphite sensor). However, when testing the sensitivity of the commercial flex sensor in extension (as it can only be bend in one direction), the sensitivity of the LowTech graphite sensor proved much weaker.
 
-![Alt text](./Photos/Sensitivity.png)
+![Alt text](./Photos/Graphite_Sensor/Sensitivity.png)
 
 In addition, the reproductablity of the graphite sensor is questionable. The results from the tests show little to no predictability of the results with extreme uncertainty in the resistance response to the application of both tension and compression to the graphite sensor. We estimate that this is partly because of multiple sources of error coming from the hardware and the fabrication of the PCB. With higher accuracy in the fabrication process, a more predictable and reproducable performance might be possible.
 
