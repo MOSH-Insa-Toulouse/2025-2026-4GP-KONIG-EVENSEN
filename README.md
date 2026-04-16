@@ -72,7 +72,7 @@ The design of the printed circuit board (PCB) destined for the use as a shield f
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
 
-> $$R_C=(V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$$
+> $R_C=(V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
 
 Where Rc is the resistance of the graphite sensor, Va is the voltage of the output of the amplifier circuit and Rp is the resistance of the digital potentiometer.
 
@@ -128,7 +128,7 @@ For the testing of the performance of the LowTech graphite sensor, we developed 
 
 The test setup enables both tension and compression tests, and can be used for both the commercial flex sensor and the LowTech graphite sensor at the same time. The absolute value of the strain is calculated using the following formula:
 
-> $$\epsilon = 6Dd/L^2$$
+> $\epsilon = 6Dd/L^2$
 
 where D(mm) is the maximum deflection of the middle of the graphite sensor, d(mm) is the thickness of the paper, and L(mm) is the length between the two supports of the test module.
 
