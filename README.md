@@ -26,7 +26,7 @@ During this project we have sought out to create a LowTech Flex Sensor based on 
 
 ## The Physics Behind the Graphite Sensor
 This project is based on the research of [Lin et al.](https://www.nature.com/articles/srep03812) on the use of "Pencil Drawn Strain Gauges and Chemiresistors on Paper". They showed that regular commercial pencils deposit fine graphite particles on paper during dry application due to friction. The graphite powder makes up a percolated network which works as a thin conductive film on the paper. This makes for an increadibly easy deposit method for generating conductive films in various patterns.
-By creating a specific U-shaped pencil trace (see [Datasheet](./GraphiteSensor_Datasheet/)), the conductive properties of the graphite network can be used to measure compressive and tensile deflections, and we can therefore employ it as a strain gauge. When the graphite is in compression (inward deflection), the graphite particle network is compressed, creating a more closely connected conductive film, and hence lowering the resistance of the strain gauge. Contrarily, tension (outward deflection) increases the resistance of the strain gauge as the distances between the graphite particles increase and disconnects the conduction pathways. The conduction between non-connected graphite particles remains possible due to tunneling effect in granular systems.
+By creating a specific U-shaped pencil trace (see [Datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_Flex_Sensor.pdf)), the conductive properties of the graphite network can be used to measure compressive and tensile deflections, and we can therefore employ it as a strain gauge. When the graphite is in compression (inward deflection), the graphite particle network is compressed, creating a more closely connected conductive film, and hence lowering the resistance of the strain gauge. Contrarily, tension (outward deflection) increases the resistance of the strain gauge as the distances between the graphite particles increase and disconnects the conduction pathways. The conduction between non-connected graphite particles remains possible due to tunneling effect in granular systems.
 
 ![Alt text](./Photos/graphite.png)
 
@@ -74,7 +74,7 @@ The design of the printed circuit board (PCB) destined for the use as a shield f
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
 
-> $$R_C = (V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$$
+> $R_C = (V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
 
 Where Rc is the resistance of the graphite sensor, Va is the voltage of the output of the amplifier circuit and Rp is the resistance of the digital potentiometer.
 
