@@ -18,6 +18,7 @@ During this project we have sought out to create a LowTech Flex Sensor based on 
 - [Arduino Code](#arduino-code)
 - [APK Application Design and Development](#apk-application-design-and-development)
 - [Test Setup](#test-setup)
+- [Datasheet](#datasheet)
 - [Conclusion](#conclusion)
 
 ---
