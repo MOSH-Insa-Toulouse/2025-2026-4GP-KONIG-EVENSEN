@@ -72,7 +72,7 @@ The design of the printed circuit board (PCB) destined for the use as a shield f
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
 
-> $R_C=(V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
+> $$R_C=(V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$$
 
 Where Rc is the resistance of the graphite sensor, Va is the voltage of the output of the amplifier circuit and Rp is the resistance of the digital potentiometer.
 
