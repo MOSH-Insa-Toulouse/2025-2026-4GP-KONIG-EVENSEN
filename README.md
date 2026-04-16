@@ -146,6 +146,6 @@ Nonetheless, the feasability and the LowTech aspect of the graphite sensor must 
 
 ---
 
-Created by Svea KONIG and Maia EVENSEN (4GP INSA Toulouse)
+Created by Svea KÖNIG and Maia EVENSEN (4GP INSA Toulouse)
 
 For support, contact konig@insa-toulouse.fr or evensen@insa-toulouse.fr
