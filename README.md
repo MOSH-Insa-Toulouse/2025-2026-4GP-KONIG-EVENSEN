@@ -50,7 +50,7 @@ As the graphite sensor constitutes a very sensitive system, it is extremeley sus
 
 ![Alt text](./Photos/FFT.png)
 
-The amplifier circuit serves as a low-pass filter with a cutoff frequency at approximately 1Hz to reduce the influence of this noise. It also serves to minimize the noise from the other componenets which will be added to the printed circuit board, such as the clock of the digital circuits and the radio frequency used for the bluetooth communication. The circuit consists of a passive filter which minimizes high frequency noise, an active filter of the type LTC1050, and a second passive filter for filtering out the noise coming from the processing of the signal.
+The amplifier circuit serves as a low-pass filter with a cutoff frequency at approximately 1.6Hz to reduce the influence of this noise. It also serves to minimize the noise from the other componenets which will be added to the printed circuit board, such as the clock of the digital circuits and the radio frequency used for the bluetooth communication. The circuit consists of a passive filter which minimizes high frequency noise, an active filter of the type LTC1050, and a second passive filter for filtering out the noise coming from the processing of the signal.
 
 During the testing of the ciruit's transient response, the dependency on the capacitance C4 became evident. An increased value of the capacitance minimized the influence of noise on the signal, but increased the repsonse time significantly. Contrarily, a decreased value enhanced the response time, but augmented the noise influence. A compromise between the two conflicting properties was made when determining the value of the capacitance.
 
@@ -74,7 +74,7 @@ The design of the printed circuit board (PCB) destined for the use as a shield f
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
 
-> $R_C = (V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
+> $$R_C = (V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$$
 
 Where Rc is the resistance of the graphite sensor, Va is the voltage of the output of the amplifier circuit and Rp is the resistance of the digital potentiometer.
 
@@ -130,7 +130,7 @@ For the testing of the performance of the LowTech graphite sensor, we developed 
 
 The test setup enables both tension and compression tests, and can be used for both the commercial flex sensor and the LowTech graphite sensor at the same time. The absolute value of the strain is calculated using the following formula:
 
-> $\epsilon = 6Dd/L^2$
+> $$\epsilon = 6Dd/L^2$$
 
 where D(mm) is the maximum deflection of the middle of the graphite sensor, d(mm) is the thickness of the paper, and L(mm) is the length between the two supports of the test module.
 
