@@ -64,7 +64,7 @@ C4 = 10 $\mu$ F
 
 
 ## Printed Circuit Board Design and Development
-The design of the printed circuit board (PCB) destined for the use as a shield for an Arduino UNO was done using the program KiCad. Here, diagrams and footprints were made of all the necessary components, and the PCB was designed with the necessary connections between the components and the Arduino UNO. The PCB allows the connection between the Arduino UNO and the following components ([link to datasheets](./Components_Datasheets/)).
+The design of the printed circuit board (PCB) destined for the use as a shield for an Arduino UNO was done using the program KiCad. Here, diagrams and footprints were made of all the necessary components, and the PCB was designed with the necessary connections between the components and the Arduino UNO. The files fro the diagram and the wiring of the PCB can be found in the repository [KiCad_Files](./KiCad_Files/). The PCB allows the connection between the Arduino UNO and the following components ([link to datasheets](./Components_Datasheets/)).
 
 ![Alt text](./Photos/KiCad/KiCad_Schema.png)
 
@@ -117,10 +117,10 @@ The Graphite mode permits the monitoring of the LowTech graphite sensor. The fir
 **GitHub QR:**
 The GitHub QR mode displays a QR code which links to the GitHub page of this project.
 
-The Arduino code also manages the serial communication over Bluetooth which is used for the transfer of data between the Arduino UNO and an Android device when using the APK Application which will be described in the following section.
+The Arduino code also manages the serial communication over Bluetooth which is used for the transfer of data between the Arduino UNO and an Android device when using the APK Application which will be described in the following section. The full code can be found in the repository [Arduino_Code](./Arduino_Code/).
 
 ## APK Application Design and Development
-An APK Application for Android has been developed using the program MIT App Inventor. This application can easily be downloaded to any Android device and permits a simple monitoring of the Arduino UNO. The application allows for connecting to a Bluetooth module such as the HC-05. Depending on if the Flex mode or the Graphite mode is activated, the graphs in the application display the current measured resistance and the relative resistance when "Start" is clicked. When "Stop" is clicked the measurement will stop, and if "Start" is then reclicked, the graphs reset and a new measurement starts. The results of a measurement can be shared or saved using the "Share Result" button. It will then be shared as a text file with the format "x1,y1;x2,y2;...". A "Scan QR Code" button permits the scanning of QR codes, such as the one displayed in QR mode, leading directly to the GitHub page of this project.
+An APK Application for Android has been developed using the program MIT App Inventor. This application can easily be downloaded to any Android device and permits a simple monitoring of the Arduino UNO. The application allows for connecting to a Bluetooth module such as the HC-05. Depending on if the Flex mode or the Graphite mode is activated, the graphs in the application display the current measured resistance and the relative resistance when "Start" is clicked. When "Stop" is clicked the measurement will stop, and if "Start" is then reclicked, the graphs reset and a new measurement starts. The results of a measurement can be shared or saved using the "Share Result" button. It will then be shared as a text file with the format "x1,y1;x2,y2;...". A "Scan QR Code" button permits the scanning of QR codes, such as the one displayed in QR mode, leading directly to the GitHub page of this project. The programming of the application is shown by the blocs in the repository [APK_Application](./APK_Application/).
 
 ![Alt text](./Photos/APK_Application/Measuring.png) ![Alt text](./Photos/APK_Application/QR_Application.png)
 
