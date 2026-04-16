@@ -15,7 +15,7 @@ The program is based on three different modes:
   of this project, and can be scanned using the android application.
 
 
-Full explanation of the wiring of the components needed for this program:
+Full description of the wiring of the components needed for this program:
   /////////////////////////////////////////
    Arduino Uno Rotary Encoder connections:
    Uno            KY-040
