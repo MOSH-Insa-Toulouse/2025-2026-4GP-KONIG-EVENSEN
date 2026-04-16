@@ -1,12 +1,10 @@
 # LOWTECH FLEX SENSOR
 ## 2025-2026-4GP-KONIG-EVENSEN
 
+![Alt text](./Photos/PCB_3D_Model.png)
+
 This work is regulated by the Creative Commons Licence CC BY 4.0, for more information 
 [follow this link](https://creativecommons.org/licenses/by/4.0/).
-
-BILDE AV 3D MODELL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
 
 ---
 
@@ -60,7 +58,7 @@ C4 = 0.1 $\mu$ F
 C4 = 1 $\mu$ F
 ![Alt text](./Photos/Trans_1u.png)
 
-C4 = 0.1 $\mu$ F
+C4 = 10 $\mu$ F
 ![Alt text](./Photos/Trans_10u.png)
 
 
@@ -74,7 +72,7 @@ The design of the printed circuit board (PCB) destined for the use as a shield f
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
 
-> $R_C = (V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
+> $R_C=(V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
 
 Where Rc is the resistance of the graphite sensor, Va is the voltage of the output of the amplifier circuit and Rp is the resistance of the digital potentiometer.
 
@@ -133,6 +131,9 @@ The test setup enables both tension and compression tests, and can be used for b
 > $$\epsilon = 6Dd/L^2$$
 
 where D(mm) is the maximum deflection of the middle of the graphite sensor, d(mm) is the thickness of the paper, and L(mm) is the length between the two supports of the test module.
+
+## Datasheet
+Lastly, we created a [datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_Flex_Sensor.pdf) for the LowTech graphite flex sensor, of the type Extra Long Special Edition C5462310 (the number corresponding to the CID PubChem Compound Identification of graphite) in a manner corresponding to the commercial flex sensor. Specifications of the properties and performance of the graphite sensor is listed in order to increase the usability of the sensor.
 
 ## Conclusion
 In order to conclude on the results of this project, we have analyzed the performance of the LowTech graphite sensor compared to a commercial flex sensor.
