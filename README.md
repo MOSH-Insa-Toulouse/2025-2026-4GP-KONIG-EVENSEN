@@ -72,7 +72,7 @@ The design of the printed circuit board (PCB) destined for the use as a shield f
 ### Graphite Sensor
 The signal of the graphite sensor is connected to the Arduino UNO through the amplifier circuit based on the operational amplifier LTC1050. The digital potentiometer MCP41010 takes part of this circuit and is used to regulate the signal Vadc following this formula:
 
-> $R_C=(V_C/V_A)*R_1*(1+R_3/R_P)-R_1-R_5$
+> $R_C = \frac{V_C}{V_A} \cdot R_1 \cdot \left(1 + \frac{R_3}{R_P}\right) - R_1 - R_5$
 
 Where Rc is the resistance of the graphite sensor, Va is the voltage of the output of the amplifier circuit and Rp is the resistance of the digital potentiometer.
 
@@ -128,7 +128,7 @@ For the testing of the performance of the LowTech graphite sensor, we developed 
 
 The test setup enables both tension and compression tests, and can be used for both the commercial flex sensor and the LowTech graphite sensor at the same time. The absolute value of the strain is calculated using the following formula:
 
-> $\epsilon = 6Dd/L^2$
+> $\epsilon = \frac{6Dd}{L^2}$
 
 where D(mm) is the maximum deflection of the middle of the graphite sensor, d(mm) is the thickness of the paper, and L(mm) is the length between the two supports of the test module.
 
@@ -136,11 +136,13 @@ where D(mm) is the maximum deflection of the middle of the graphite sensor, d(mm
 Lastly, we created a [datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_Flex_Sensor.pdf) for the LowTech graphite flex sensor, of the type Extra Long Special Edition C5462310 (the number corresponding to the CID PubChem Compound Identification of graphite) in a manner corresponding to the commercial flex sensor. Specifications of the properties and performance of the graphite sensor is listed in order to increase the usability of the sensor.
 
 ## Conclusion
-In order to conclude on the results of this project, we have analyzed the performance of the LowTech graphite sensor compared to a commercial flex sensor.
+In order to conclude on the results of this project, we have analyzed the performance of the LowTech graphite sensor compared to a commercial flex sensor. We found the sensitivity of the sensor as a good measurement as this determines the smallest measurable difference in strain, the input value. When analyzing the sensitivity of the graphite sensor, we found that the harder pencils showed a higher sensibility (see the [datasheet](./GraphiteSensor_Datasheet/Datasheet_Graphite_Flex_Sensor.pdf) of the graphite sensor). However, when testing the sensitivity of the commercial flex sensor in extension (as it can only be bend in one direction), the sensitivity of the LowTech graphite sensor proved much weaker.
 
-However, the reproductablity of the graphite sensor is questionable. The results from the tests show little to no predictability of the results with extreme uncertainty in the resistance response to the application of both tension and compression to the graphite sensor.
+![Alt text](./Photos/Sensitivity.png)
 
-ABSOLUTT IKKE FERDIG!!!!!!!!!!!!!!!!!!
+In addition, the reproductablity of the graphite sensor is questionable. The results from the tests show little to no predictability of the results with extreme uncertainty in the resistance response to the application of both tension and compression to the graphite sensor. We estimate that this is partly because of multiple sources of error coming from the hardware and the fabrication of the PCB. With higher accuracy in the fabrication process, a more predictable and reproducable performance might be possible.
+
+Nonetheless, the feasability and the LowTech aspect of the graphite sensor must be appreciated. This project shows that a well-functionning flex sensor can be fabricated from the simplest materials, particularly a pencil and paper, and with little to none previous experience with the fabrication of integrated circuits. Moreover, easily accessible components and simple processes serve to increase the performance of the graphite sensor noticeably. Even though the weak sensitivity decreases the probability of the graphite sensor becoming industrializable, the graphite sensor represents a technology available for almost everyone. All in all, this project shows that a transition to LowTech solutions makes technology way more accessible and increases its sustainability for both people and the planet.
 
 ---
 
