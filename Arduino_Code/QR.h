@@ -4,5 +4,4 @@
 
 extern const unsigned char epd_bitmap_frame [] PROGMEM;
 
-
 #endif
